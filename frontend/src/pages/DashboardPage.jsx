@@ -86,6 +86,16 @@ export default function DashboardPage() {
     navigate("/login");
   };
 
+  const getToggleButtonLabel = (taskStatus) => {
+    return taskStatus === "completed" ? "Mark as pending" : "Mark as completed";
+  };
+
+  const getToggleButtonClass = (taskStatus) => {
+    return taskStatus === "completed"
+      ? "inline-flex items-center justify-center rounded-full border border-amber-200 bg-amber-50 px-5 py-3 font-medium text-amber-700 hover:border-amber-300 hover:bg-amber-100"
+      : "inline-flex items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 px-5 py-3 font-medium text-emerald-700 hover:border-emerald-300 hover:bg-emerald-100";
+  };
+
   return (
     <main className="mx-auto min-h-screen max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <div className="grid gap-5">
@@ -192,8 +202,8 @@ export default function DashboardPage() {
                   </div>
 
                   <div className="mt-4 flex flex-wrap gap-3">
-                    <button className="secondary-btn" type="button" onClick={() => handleToggle(task._id)}>
-                      Toggle
+                    <button className={getToggleButtonClass(task.status)} type="button" onClick={() => handleToggle(task._id)}>
+                      {getToggleButtonLabel(task.status)}
                     </button>
                     <button className="secondary-btn" type="button" onClick={() => startEdit(task)}>
                       Edit
