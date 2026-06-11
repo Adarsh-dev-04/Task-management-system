@@ -162,6 +162,4 @@ PATCH  /api/tasks/:id/toggle
 
 ## 👨‍💻 Author
 
-**[Your Name]**
-
-Developed as part of the MERN Stack Internship Assessment.
+**Adarsh Agrahari**
